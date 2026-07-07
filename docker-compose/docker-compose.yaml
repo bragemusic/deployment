@@ -1,0 +1,24 @@
+services:
+  server:
+    image: brage1t
+    ports:
+      - "3000:3000"
+    volumes:
+        - ./dockerdata:/bragemusic
+    environment:
+      BM_JOBS_META_SYNCER: "*/1 * * * *"
+      BM_JOBS_TRACK_ANALYSER: "*/1 * * * *"
+      BM_ACOUST_ID_API_KEY: MY_KEY
+      # BM_GENERAL_LOG_LEVEL: WARN
+      # BM_GENERAL_LOG_FORMAT: pretty
+      BM_WIKIPEDIA_EMAIL: example@example.com
+      # BM_GENERAL_PORT: 3000
+      BM_GENERAL_NAME: "My Musicserver"
+      BM_ANALYSER_BASE_URL: "http://track-analyser:3001"
+      BM_ADMIN_USERNAME: "Admin Adminson"
+      BM_ADMIN_EMAIL: "admin@example.com"
+      BM_ADMIN_PASSWORD: "1234"
+  track-analyser:
+    image: brageta1
+    ports:
+      - "3001:3001"
