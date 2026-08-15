@@ -1,6 +1,6 @@
 services:
   server:
-    image: brage1t
+    image: ghcr.io/bragemusic/server:latest
     ports:
       - "3000:3000"
     volumes:
@@ -19,6 +19,6 @@ services:
       BM_ADMIN_EMAIL: "admin@example.com"
       BM_ADMIN_PASSWORD: "1234"
   track-analyser:
-    image: brageta1
+    image: ghcr.io/bragemusic/track-analyser:latest
     ports:
       - "3001:3001"
